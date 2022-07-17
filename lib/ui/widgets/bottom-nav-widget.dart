@@ -1,4 +1,5 @@
 import 'package:bit_initial/ui/screens/profile/community-page.dart';
+import 'package:bit_initial/ui/screens/profile/personal-data.dart';
 import 'package:bit_initial/ui/screens/profile/settings-page.dart';
 import 'package:flutter/material.dart';
 
@@ -28,13 +29,7 @@ class _BottomNavigationWidgetState extends State<BottomNavigationWidget> {
               color: Colors.black, fontSize: 15, fontWeight: FontWeight.bold),
         ),
       ),
-      body: [
-        SettingsPage(),
-        Container(
-          color: Colors.blue,
-        ),
-        CommunityPage()
-      ][_current],
+      body: [SettingsPage(), PersonalDataScreen(), CommunityPage()][_current],
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
           selectedItemColor: Colors.deepPurpleAccent,
