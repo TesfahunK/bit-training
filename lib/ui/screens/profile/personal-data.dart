@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:bit_initial/ui/widgets/text-field-widget.dart';
 import 'package:bit_initial/utils/data/date-helper.dart';
 import 'package:bit_initial/utils/ui/helpers.dart';
