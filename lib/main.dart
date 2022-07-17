@@ -1,8 +1,9 @@
-import 'package:bit_initial/ui/widgets/bottom-nav-widget.dart';
+import 'package:bit_initial/ui/screens/counter-screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
           primarySwatch: Colors.blue, scaffoldBackgroundColor: Colors.white),
-      home: BottomNavigationWidget(),
+      home: RiverPodCounter(),
     );
   }
 }
