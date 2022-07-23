@@ -1,12 +1,15 @@
-import 'package:bit_initial/ui/screens/rick-morty/splashscreen.dart';
-import 'package:bit_initial/ui/widgets/rick-morty/bottom-nav.dart';
+import 'package:bit_initial/ui/screens/todo-page.dart';
 import 'package:bit_initial/utils/data/graphql-client.dart';
+import 'package:bit_initial/utils/injector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  configureDependencies();
   await initHiveForFlutter();
 
   SystemChrome.setPreferredOrientations(
@@ -29,7 +32,7 @@ class MyApp extends StatelessWidget {
           fontFamily: 'Nunito',
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: Colors.white),
-      home: SplashScreen(),
+      home: TodoListScreen(),
     );
   }
 }

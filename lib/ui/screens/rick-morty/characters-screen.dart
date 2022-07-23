@@ -2,7 +2,6 @@ import 'package:bit_initial/data/models/character.dart';
 import 'package:bit_initial/ui/widgets/loader.dart';
 import 'package:bit_initial/ui/widgets/rick-morty/character-card.dart';
 import 'package:bit_initial/utils/data/queries.dart';
-import 'package:bit_initial/utils/ui/basic-widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 

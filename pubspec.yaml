@@ -32,9 +32,17 @@ dependencies:
   logger:
   cached_network_image:
   shimmer:
+  http:
+  dio:
+  get_it:
+  injectable:
+  dartz:
+  rxdart:
 
 dev_dependencies:
   flutter_launcher_icons:
+  injectable_generator:
+  build_runner:
   flutter_test:
     sdk: flutter
 
