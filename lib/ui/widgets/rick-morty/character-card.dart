@@ -1,4 +1,5 @@
 import 'package:bit_initial/data/models/character.dart';
+import 'package:bit_initial/utils/data/notifications.dart';
 import 'package:bit_initial/utils/ui/basic-widgets.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
@@ -38,6 +39,11 @@ class CharacterCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
+        showPushNotification(
+            hascode: character.hashCode,
+            title: character.name,
+            message:
+                "Hi there !, its me ${character.name} from ${character.location.name}");
         showDetailSheet(context);
       },
       leading: networkImageLoader(url: character.image, height: 50, width: 50),
