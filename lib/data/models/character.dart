@@ -1,5 +1,8 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:convert';
 
+import 'package:bit_initial/data/database/local.dart';
 import 'package:bit_initial/data/models/location.dart';
 
 class CharacterModel {
@@ -12,6 +15,7 @@ class CharacterModel {
   final String type;
   final LocationMini location;
   final LocationMini origin;
+  final DateTime? saved_at;
   CharacterModel({
     required this.id,
     required this.name,
@@ -22,6 +26,7 @@ class CharacterModel {
     required this.type,
     required this.location,
     required this.origin,
+    this.saved_at,
   });
 
   CharacterModel copyWith({
@@ -34,6 +39,7 @@ class CharacterModel {
     String? type,
     LocationMini? location,
     LocationMini? origin,
+    DateTime? saved_at,
   }) {
     return CharacterModel(
       id: id ?? this.id,
@@ -45,6 +51,7 @@ class CharacterModel {
       type: type ?? this.type,
       location: location ?? this.location,
       origin: origin ?? this.origin,
+      saved_at: saved_at ?? this.saved_at,
     );
   }
 
@@ -59,6 +66,7 @@ class CharacterModel {
       'type': type,
       'location': location.toMap(),
       'origin': origin.toMap(),
+      'saved_at': saved_at?.millisecondsSinceEpoch,
     };
   }
 
@@ -73,6 +81,24 @@ class CharacterModel {
       type: map['type'] ?? '',
       location: LocationMini.fromMap(map['location']),
       origin: LocationMini.fromMap(map['origin']),
+      saved_at: map['saved_at'] != null
+          ? DateTime.fromMillisecondsSinceEpoch(map['saved_at'])
+          : null,
+    );
+  }
+
+  factory CharacterModel.fromDatabase(Characterz model) {
+    return CharacterModel(
+      saved_at: model.saved_at,
+      id: model.id,
+      name: model.name,
+      gender: model.gender,
+      image: model.image,
+      species: model.species,
+      status: model.status,
+      type: model.type,
+      location: LocationMini.fromJson(model.location),
+      origin: LocationMini.fromJson(model.origin),
     );
   }
 
@@ -83,7 +109,7 @@ class CharacterModel {
 
   @override
   String toString() {
-    return 'CharacterModel(id: $id, name: $name, gender: $gender, image: $image, species: $species, status: $status, type: $type, location: $location, origin: $origin)';
+    return 'CharacterModel(id: $id, name: $name, gender: $gender, image: $image, species: $species, status: $status, type: $type, location: $location, origin: $origin, saved_at: $saved_at)';
   }
 
   @override
@@ -99,7 +125,8 @@ class CharacterModel {
         other.status == status &&
         other.type == type &&
         other.location == location &&
-        other.origin == origin;
+        other.origin == origin &&
+        other.saved_at == saved_at;
   }
 
   @override
@@ -112,6 +139,7 @@ class CharacterModel {
         status.hashCode ^
         type.hashCode ^
         location.hashCode ^
-        origin.hashCode;
+        origin.hashCode ^
+        saved_at.hashCode;
   }
 }

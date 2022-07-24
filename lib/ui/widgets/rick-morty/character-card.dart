@@ -1,9 +1,13 @@
+import 'package:bit_initial/data/database/local.dart';
 import 'package:bit_initial/data/models/character.dart';
 import 'package:bit_initial/utils/data/notifications.dart';
+import 'package:bit_initial/utils/injector.dart';
 import 'package:bit_initial/utils/ui/basic-widgets.dart';
+import 'package:collection/collection.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 class CharacterCard extends StatelessWidget {
   final CharacterModel character;
@@ -66,22 +70,36 @@ class CharacterCard extends StatelessWidget {
           )
         ],
       ),
-      trailing: Wrap(
-        spacing: 10,
-        direction: Axis.vertical,
-        crossAxisAlignment: WrapCrossAlignment.center,
-        children: [
-          Icon(
-            Icons.accessibility,
-            color: Colors.green,
-            size: 15,
-          ),
-          Text(
-            character.species,
-            style: TextStyle(fontSize: 14),
-          )
-        ],
-      ),
+      trailing: StreamBuilder<List<Characterz>>(
+          initialData: [],
+          stream: getIt
+              .get<BitTrainingDatabase>()
+              .characterDao
+              .getAllSavedCharacters(),
+          builder: (context, AsyncSnapshot<List<Characterz>> snapshot) {
+            bool saved = snapshot.data!.firstWhereOrNull(
+                        (element) => element.id == character.id) ==
+                    null
+                ? false
+                : true;
+
+            return IconButton(
+                onPressed: () {
+                  if (saved) {
+                    getIt
+                        .get<BitTrainingDatabase>()
+                        .characterDao
+                        .deleteCharcter(character.id);
+                  } else {
+                    getIt
+                        .get<BitTrainingDatabase>()
+                        .characterDao
+                        .saveCharacter(character);
+                  }
+                },
+                color: saved ? Colors.red : Colors.grey,
+                icon: Icon(saved ? Icons.favorite : Icons.favorite_border));
+          }),
     );
   }
 }

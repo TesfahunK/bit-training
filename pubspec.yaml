@@ -39,10 +39,16 @@ dependencies:
   dartz:
   rxdart:
   flutter_local_notifications:
+  drift:
+  sqlite3_flutter_libs:
+  path_provider:
+  path:
+  collection:
 
 dev_dependencies:
   flutter_launcher_icons:
   injectable_generator:
+  drift_dev:
   build_runner:
   flutter_test:
     sdk: flutter
