@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "243207565890",
+    "firebase_url": "https://auth-a5961.firebaseio.com",
+    "project_id": "auth-a5961",
+    "storage_bucket": "auth-a5961.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243207565890:android:d48dd79b4d1f15b081f3db",
+        "android_client_info": {
+          "package_name": "com.example.bit_initial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243207565890-dqf268274nn71pbid9r11no035sb57p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf3CsFPzCUPOWvKuuk9PZ_ELTq_l3LL34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243207565890-dqf268274nn71pbid9r11no035sb57p1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "243207565890-5f9j805vuhrfo3vv4o2fncdo8b58m3op.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.dialucPro"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

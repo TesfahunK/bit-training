@@ -44,6 +44,9 @@ dependencies:
   path_provider:
   path:
   collection:
+  firebase_core: ^1.20.0
+  firebase_auth:
+  google_sign_in: ^5.4.0
 
 dev_dependencies:
   flutter_launcher_icons:

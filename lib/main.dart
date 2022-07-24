@@ -1,3 +1,4 @@
+import 'package:bit_initial/ui/screens/firebase/auth-page.dart';
 import 'package:bit_initial/ui/screens/rick-morty/splashscreen.dart';
 import 'package:bit_initial/utils/data/graphql-client.dart';
 import 'package:bit_initial/utils/injector.dart';
@@ -7,12 +8,18 @@ import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     new FlutterLocalNotificationsPlugin();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   await EasyLocalization.ensureInitialized();
 
   configureDependencies();
