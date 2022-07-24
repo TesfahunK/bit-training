@@ -4,7 +4,6 @@ import 'package:bit_initial/utils/data/date-helper.dart';
 import 'package:bit_initial/utils/injector.dart';
 import 'package:bit_initial/utils/ui/basic-widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 
 final todoProvider = getIt.get<TodoStateProvider>();
 

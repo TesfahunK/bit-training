@@ -2,6 +2,7 @@ import 'package:bit_initial/ui/screens/rick-morty/characters-screen.dart';
 import 'package:bit_initial/ui/screens/rick-morty/episodes.dart';
 import 'package:bit_initial/ui/screens/rick-morty/favourite.dart';
 import 'package:bit_initial/ui/screens/rick-morty/locations.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class RnMBottomNavigationWidget extends StatefulWidget {
@@ -15,7 +16,6 @@ class RnMBottomNavigationWidget extends StatefulWidget {
 class _RnMBottomNavigationWidgetState extends State<RnMBottomNavigationWidget> {
   int _current = 0;
 
-  List<String> _titles = ["Characters", "Episodes", "Locations", "Saved"];
   List<Widget> _screens = [
     CharacterListScreen(),
     EpisodeListScreen(),
@@ -31,8 +31,31 @@ class _RnMBottomNavigationWidgetState extends State<RnMBottomNavigationWidget> {
         elevation: 0.4,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
+        actions: [
+          TextButton.icon(
+              onPressed: () {
+                if (context.locale.languageCode == "en") {
+                  context.setLocale(Locale("am", "ET"));
+                } else {
+                  context.setLocale(Locale("en", "US"));
+                }
+              },
+              icon: Icon(
+                Icons.language,
+                size: 15,
+              ),
+              label: Text(
+                context.locale.languageCode == "en" ? "አማርኛ" : "English",
+                style: TextStyle(fontSize: 12),
+              ))
+        ],
         title: Text(
-          _titles[_current],
+          [
+            "characters".tr(),
+            "episodes".tr(),
+            "locations".tr(),
+            "saved".tr()
+          ][_current],
           style: TextStyle(
               color: Colors.black,
               fontSize: 20,
@@ -53,11 +76,13 @@ class _RnMBottomNavigationWidgetState extends State<RnMBottomNavigationWidget> {
           },
           items: [
             BottomNavigationBarItem(
-                label: "Characters", icon: Icon(Icons.group)),
-            BottomNavigationBarItem(label: "Episodes", icon: Icon(Icons.movie)),
+                label: "characters".tr(), icon: Icon(Icons.group)),
             BottomNavigationBarItem(
-                label: "Locations", icon: Icon(Icons.location_on)),
-            BottomNavigationBarItem(label: "Saved", icon: Icon(Icons.bookmark)),
+                label: "episodes".tr(), icon: Icon(Icons.movie)),
+            BottomNavigationBarItem(
+                label: "locations".tr(), icon: Icon(Icons.location_on)),
+            BottomNavigationBarItem(
+                label: "saved".tr(), icon: Icon(Icons.bookmark)),
           ]),
     );
   }

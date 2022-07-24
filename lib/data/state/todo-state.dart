@@ -1,8 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:logger/logger.dart';
 import 'package:rxdart/subjects.dart';
-
 import 'package:bit_initial/data/models/failure.dart';
 import 'package:bit_initial/data/models/todo.dart';
 import 'package:bit_initial/data/services/service.dart';

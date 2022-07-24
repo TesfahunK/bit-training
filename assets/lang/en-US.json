@@ -1,0 +1,11 @@
+{
+  "characters": "Characters",
+  "episodes": "Episodes",
+  "locations": "Locations",
+  "saved": "Saved",
+  "detail": {
+    "gender": "Gender",
+    "species": "Species",
+    "status": "Status"
+  }
+}

@@ -1,5 +1,6 @@
 import 'package:bit_initial/data/models/character.dart';
 import 'package:bit_initial/utils/ui/basic-widgets.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -186,7 +187,7 @@ class CharacterBottomSheet extends StatelessWidget {
                       children: [
                         RichText(
                             text: TextSpan(
-                                text: "Gender - ",
+                                text: tr("detail.gender") + " - ",
                                 style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.black,
@@ -200,7 +201,7 @@ class CharacterBottomSheet extends StatelessWidget {
                             ])),
                         RichText(
                             text: TextSpan(
-                                text: "Species - ",
+                                text: tr("detail.species") + " - ",
                                 style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.black,
@@ -221,7 +222,7 @@ class CharacterBottomSheet extends StatelessWidget {
                       children: [
                         RichText(
                             text: TextSpan(
-                                text: "Status - ",
+                                text: tr("detail.status") + " - ",
                                 style: TextStyle(
                                     fontSize: 15,
                                     color: Colors.black,
